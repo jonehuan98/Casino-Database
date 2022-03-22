@@ -1,0 +1,60 @@
+#Generate tables
+
+CREATE TABLE user_info (
+    uid int NOT NULL,
+    hashed_password,
+    email varchar(255),
+    user_status,
+    child_address_BTC,
+    child_address_LTC,
+    child_address_DOGE,
+    user_balance_BTC,
+    user_balance_LTC,
+    user_balance_DOGE,
+    newsletter_true,
+    terms_conditions_accepted,
+    email_verification_code,
+    user_referral_code,
+    PRIMARY KEY (uid)
+);
+
+CREATE TABLE transaction_DOGE (
+    tid_DOGE NOT NULL,
+    child_address_DOGE,
+    amount_DOGE,
+    transaction_time,
+    blockchain_confirmation,  
+    PRIMARY KEY (tid_DOGE) 
+);
+
+CREATE TABLE transaction_LTC (
+    tid_LTC NOT NULL,
+    child_address_DOGE,
+    amount_LTC,
+    transaction_time,
+    blockchain_confirmation,  
+    PRIMARY KEY (tid_LTC) 
+);
+
+CREATE TABLE transaction_BTC (
+    tid_BTC NOT NULL,
+    child_address_BTC,
+    amount_BTC,
+    transaction_time,
+    blockchain_confirmation,
+    PRIMARY KEY (tid_BTC)
+);
+
+CREATE TABLE game_history (
+    sessionid NOT NULL,
+    gameid,
+    timestamp,
+    amount_game,
+    currency,
+    uid,
+    PRIMARY KEY (sessionid)  
+);
+
+
+
+
