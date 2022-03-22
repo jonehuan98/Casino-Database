@@ -1,9 +1,9 @@
-#Generate tables
+--Generate tables
 
 CREATE TABLE user_info (
     uid int NOT NULL,
-    hashed_password,
-    email varchar(255),
+    hashed_password NOT NULL,
+    email varchar(255) NOT NULL,
     user_status,
     child_address_BTC,
     child_address_LTC,
@@ -54,6 +54,58 @@ CREATE TABLE game_history (
     uid,
     PRIMARY KEY (sessionid)  
 );
+
+--Queries
+
+--admin
+
+-- basic sign up
+INSERT INTO user_info (uid, hashed_password, email, user_status)
+VALUES (,,,customer);
+
+-- next stage sign up, if verification code true, terms and conditions true
+-- your api should generate the child wallets, check balances of child wallets (optional, else 0), check newsletter.
+UPDATE user_info
+SET child_address_BTC = "generated from api",
+    child_address_LTC = "generated from api",
+    child_address_DOGE = "generated from api",
+    user_balance_BTC = "generated from api",
+    user_balance_LTC = "generated from api",
+    user_balance_DOGE = "generated from api",
+    newsletter_true = "",
+    terms_conditions_accepted = true,
+    email_verification_code = "",
+    user_referral_code = "",
+WHERE uid = "user in question";
+
+-- transactions
+
+-- if user prompts deposit in selected currency:
+-- check child wallet for depositamount and transactionid 
+INSERT INTO transaction_BTC
+VALUES (tid_BTC, child_address_BTC, amount_BTC, transaction_time, blockchain_confirmation)
+
+-- and if blockchain_confirmation true:
+UPDATE user_info
+SET user_balance_BTC += depositamount (int)
+WHERE uid = "child_adress_BTC";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
